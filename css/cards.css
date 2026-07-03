@@ -1,0 +1,224 @@
+/* ── Scene container becomes fullscreen card stage ── */
+#scene-container {
+  position: fixed !important;
+  inset: 0 !important;
+  max-width: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  min-height: 0 !important;
+}
+
+/* ── Card root fills the stage ── */
+.card-root {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--color-paper);
+}
+
+/* ── Progress segments (Instagram Stories pattern) ── */
+.card-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  gap: 4px;
+  padding: 14px 20px 0;
+}
+.seg {
+  flex: 1;
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.18);
+  transition: background 0.3s;
+}
+.seg.done { background: rgba(255,255,255,0.65); }
+.seg.active { background: var(--color-accent); box-shadow: 0 0 6px var(--color-accent); }
+
+/* ── Individual cards ── */
+.card-slide {
+  position: absolute;
+  inset: 0;
+  transform: translateX(100%);
+  transition: transform 0.36s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.36s;
+  opacity: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.card-slide.active { transform: translateX(0); opacity: 1; }
+.card-slide.exiting { transform: translateX(-60px); opacity: 0; pointer-events: none; }
+
+/* ── Content wrapper — centered, readable width ── */
+.card-inner {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 60px 24px 48px;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Image cards ── */
+.card-image {
+  background-size: cover;
+  background-position: center 35%;
+}
+.card-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.92) 45%, rgba(0,0,0,0.2) 100%);
+}
+.card-image .card-inner {
+  position: relative;
+  z-index: 1;
+  justify-content: flex-end;
+}
+
+/* ── Continue affordance ── */
+.tap-row { margin-top: auto; padding-top: 28px; }
+.btn-tap {
+  background: none;
+  border: 1px solid var(--color-rule);
+  color: var(--color-ink-muted);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 10px 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color 0.15s, color 0.15s;
+}
+.btn-tap:hover { border-color: var(--color-accent); color: var(--color-ink); }
+.arrow-anim { animation: tap-nudge 1.8s ease-in-out infinite; display: inline-block; }
+@keyframes tap-nudge {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
+}
+
+/* ── Stats strip (card variant) ── */
+.card-stats-strip {
+  display: flex;
+  border: 1px solid var(--color-rule);
+  background: var(--color-surface-2);
+  margin: 16px 0 20px;
+}
+.card-stat {
+  flex: 1;
+  padding: 14px 10px;
+  border-right: 1px solid var(--color-rule);
+  text-align: center;
+}
+.card-stat:last-child { border-right: none; }
+.card-stat-value {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  line-height: 1.1;
+  margin-bottom: 5px;
+}
+.card-stat-label {
+  display: block;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  line-height: 1.4;
+}
+
+/* ── Trust meter — full card version ── */
+.trust-card-block {
+  background: var(--color-surface);
+  border: 2px solid var(--color-rule);
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  transition: border-color 0.4s;
+}
+.trust-card-block.trust-level-high { border-color: var(--color-trust-high); }
+.trust-card-block.trust-level-medium { border-color: var(--color-trust-medium); }
+.trust-card-block.trust-level-low { border-color: var(--color-trust-low); }
+
+/* ── Trust meter — mini version on choice card ── */
+.trust-micro {
+  border-bottom: 1px solid var(--color-rule);
+  padding: 10px 0 12px;
+  margin-bottom: 14px;
+}
+
+/* ── Character card ── */
+.char-portrait-large {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.char-portrait-large svg { width: 44px; height: 44px; }
+.char-name-large { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
+.char-role-small { font-size: 0.78rem; color: var(--color-ink-muted); margin-bottom: 20px; }
+.char-bullets-v2 { list-style: none; padding: 0; margin: 0 0 24px; }
+.char-bullets-v2 li {
+  font-size: 0.95rem;
+  color: var(--color-ink);
+  line-height: 1.6;
+  padding-left: 16px;
+  position: relative;
+  margin-bottom: 8px;
+}
+.char-bullets-v2 li::before { content: '—'; position: absolute; left: 0; color: var(--color-rule); }
+.char-bullets-v2 li strong { color: var(--color-ink); font-weight: 600; }
+
+/* ── Your move bar ── */
+.your-move-bar {
+  background: var(--color-accent);
+  color: white;
+  padding: 10px 14px;
+  margin-bottom: 14px;
+}
+.your-move-bar .ym-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  display: block;
+}
+.your-move-bar .ym-text {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+/* ── Eyebrow override for card context ── */
+.card-inner .eyebrow {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 10px;
+  display: block;
+}
+.card-image .card-inner .eyebrow { color: rgba(255,255,255,0.6); }
+
+/* ── Scrollable single-card scenes (gazette, debrief) ── */
+.card-scrollable {
+  display: block;
+  overflow-y: auto;
+}
+
+/* ── Phase B: scene illustrations — stronger scrim + light text (overrides legacy card-image) ── */
+.card-image { color: #f2efe8; background-position: center 62%; }
+.card-image::before {
+  background: linear-gradient(to top, rgba(10,13,18,0.94) 42%, rgba(10,13,18,0.55) 70%, rgba(10,13,18,0.22) 100%);
+}
+.card-image .card-eyebrow { color: rgba(255,255,255,0.78); }
+.card-image .card-tap { background: rgba(10,13,18,0.72); }
+.card-image .card-echo { border-color: var(--brand-accent, #cc3433); }

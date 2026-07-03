@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Land Deal</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/cards.css">
+  <link rel="stylesheet" href="css/brand.css">
+</head>
+<body>
+  <main id="scene-container" class="scene-container"></main>
+  <div id="notebook-root"></div>
+  <div id="fact-live" aria-live="polite" class="sr-only"></div>
+  <script src="js/links.js"></script>
+  <script src="js/facts.js"></script>
+  <script src="js/scenario.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/engine.js"></script>
+  <script src="js/ui.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => { UI.registerAllScenes(); Engine.start() })
+  </script>
+</body>
+</html>

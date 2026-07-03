@@ -1,0 +1,55 @@
+/* Scene fade */
+.scene-container { transition: opacity 0.2s ease; }
+.fade-out { opacity: 0; }
+.fade-in { animation: fadeIn 0.3s ease forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Typewriter */
+.typewriter-cursor::after {
+  content: '|';
+  animation: blink 0.7s step-end infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Trust flash */
+@keyframes flashIn {
+  0% { opacity: 0; transform: translateY(-4px); }
+  20% { opacity: 1; transform: translateY(0); }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+.trust-flash.show { animation: flashIn 2.5s ease forwards; }
+
+/* Portrait pulse on appearance */
+@keyframes portraitIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.portrait { animation: portraitIn 0.3s ease; }
+
+@media (prefers-reduced-motion: reduce) {
+  .card-slide, .seg, * { transition: none !important; animation: none !important; }
+}
+
+/* ── Phase A motion: text breathes in, notebook pulses, reveal tiles stagger ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.card-slide.active .card-inner > * { animation: fadeUp 0.45s ease both; }
+.card-slide.active .card-inner > *:nth-child(1) { animation-delay: 0.05s; }
+.card-slide.active .card-inner > *:nth-child(2) { animation-delay: 0.15s; }
+.card-slide.active .card-inner > *:nth-child(3) { animation-delay: 0.25s; }
+.card-slide.active .card-inner > *:nth-child(4) { animation-delay: 0.35s; }
+.card-slide.active .card-inner > *:nth-child(5) { animation-delay: 0.45s; }
+.card-slide.active .card-inner > *:nth-child(6) { animation-delay: 0.55s; }
+.card-slide.active .card-inner > *:nth-child(n+7) { animation-delay: 0.65s; }
+
+@keyframes nbPulse {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.18); }
+  100% { transform: scale(1); }
+}
+.notebook-btn.nb-pulse { animation: nbPulse 0.5s ease 0.3s; }
+
+.fact-tile { animation: fadeUp 0.4s ease both; }

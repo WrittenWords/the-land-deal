@@ -1,0 +1,18 @@
+/* brand.css — ALL Signal-specific presentation lives here and only here.
+   Swap this file to rebrand or neutralize the game. */
+:root {
+  --brand-name: 'Signal Statewide';
+  --brand-accent: #cc3433;        /* Signal red — placeholder, confirm with brand kit */
+  --brand-accent-ink: #ffffff;
+  --brand-bg-credit: #1a1a2e;
+}
+.brand-credit {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+.brand-cta {
+  background: var(--brand-accent);
+  color: var(--brand-accent-ink);
+}
