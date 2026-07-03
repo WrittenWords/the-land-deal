@@ -42,9 +42,11 @@ const UI = (function () {
       // strip anything that could break out of the url() — paths are ours, but belt and suspenders
       const bg = spec.bgImg ? ' style="background-image:url(\'' + String(spec.bgImg).replace(/['"()\\ ]/g, '') + '\')"' : ''
       const isLast = i === specs.length - 1
+      // re-read affordance: only within this card stack, never across a decision
+      const back = i > 0 ? '<button class="card-back" data-back="' + i + '" aria-label="Back to previous card">‹ Back</button>' : ''
       const btn = '<button class="card-tap" data-adv="' + i + '">' +
         _esc(isLast ? tapLabel : 'Tap to continue') + ' →</button>'
-      slides += '<div class="' + cls + '"' + bg + '><div class="card-inner">' +
+      slides += '<div class="' + cls + '"' + bg + '>' + back + '<div class="card-inner">' +
         spec.html + btn + '</div></div>'
     })
     container.innerHTML = '<div class="card-root"><div class="card-progress">' + segs + '</div>' + slides + '</div>'
@@ -58,6 +60,15 @@ const UI = (function () {
         slideEls[i + 1].classList.add('active')
         segEls[i].classList.remove('active'); segEls[i].classList.add('done')
         segEls[i + 1].classList.add('active')
+        window.scrollTo(0, 0)
+      })
+    })
+    container.querySelectorAll('[data-back]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const i = parseInt(btn.getAttribute('data-back'), 10)
+        slideEls[i].classList.remove('active')
+        slideEls[i - 1].classList.remove('exiting'); slideEls[i - 1].classList.add('active')
+        segEls[i].classList.remove('active'); segEls[i - 1].classList.remove('done'); segEls[i - 1].classList.add('active')
         window.scrollTo(0, 0)
       })
     })
@@ -274,19 +285,33 @@ const UI = (function () {
     if (known.some(id => !publicIds.includes(id))) {
       html += '<p class="card-para">' + _esc(RC.knownNotPublic) + '</p>'
     }
+    const allFacts = Object.values(FACTWEB.FACTS)
+    const foundFacts = allFacts.filter(f => known.includes(f.id))
+    const missedFacts = allFacts.filter(f => !known.includes(f.id))
     html += '<div class="fact-grid">'
-    Object.values(FACTWEB.FACTS).forEach((f, i) => {
-      let cls = 'missed', note = f.missedLine
-      if (publicIds.includes(f.id)) { cls = 'public'; note = f.body }
-      else if (known.includes(f.id)) { cls = 'known'; note = f.body }
+    foundFacts.forEach((f, i) => {
+      const cls = publicIds.includes(f.id) ? 'public' : 'known'
       html += '<div class="fact-tile fact-' + cls + '" style="animation-delay:' + (i * 70) + 'ms"><span class="notebook-cluster">' +
         _esc(FACTWEB.CLUSTERS[f.cluster]) + '</span><strong>' + _esc(f.title) + '</strong>' +
-        '<p>' + _esc(note) + '</p>' +
-        (cls === 'missed' ? '<p class="fact-who">Could have found it: ' +
-          _esc(f.reachableBy.map(r => SCENARIO.ROLES[r].title).join(', ')) + '</p>' : '') +
-        '</div>'
+        '<p>' + _esc(f.body) + '</p></div>'
     })
     html += '</div>'
+    if (missedFacts.length > 0) {
+      html += '<h3 class="reveal-h3">What never surfaced</h3><div class="fact-grid">'
+      missedFacts.forEach((f, i) => {
+        const canOwn = f.reachableBy.includes(role)
+        const others = f.reachableBy.filter(r => r !== role).map(r => SCENARIO.ROLES[r].title)
+        let who = canOwn
+          ? 'This one was reachable on your path — it slipped past.'
+          : 'Not reachable as ' + SCENARIO.ROLES[role].title + '.' +
+            (others.length ? ' Play as ' + others.join(' or ') + ' to find it.' : '')
+        html += '<div class="fact-tile fact-missed" style="animation-delay:' + (i * 70) + 'ms"><span class="notebook-cluster">' +
+          _esc(FACTWEB.CLUSTERS[f.cluster]) + '</span><strong>' + _esc(f.title) + '</strong>' +
+          '<p>' + _esc(f.missedLine) + '</p>' +
+          '<p class="fact-who">' + _esc(who) + '</p></div>'
+      })
+      html += '</div>'
+    }
     if (late.length > 0) {
       html += '<p class="card-para"><em>' + _esc(RC.lateReporter) + ' ' +
         late.map(id => FACTWEB.FACTS[id].title).join(', ') + '</em></p>'

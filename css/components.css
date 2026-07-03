@@ -431,3 +431,19 @@
   padding-bottom: 8px;
   margin-bottom: 12px;
 }
+
+.card-back {
+  position: absolute;
+  top: 24px;
+  left: 14px;
+  z-index: 5;
+  background: none;
+  border: none;
+  color: inherit;
+  opacity: 0.55;
+  font-size: 0.9rem;
+  min-height: 44px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+.card-back:hover, .card-back:focus-visible { opacity: 1; }

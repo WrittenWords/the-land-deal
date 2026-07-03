@@ -79,7 +79,7 @@ SCENES.a1_meeting = {
     { dark: true, eyebrow: 'Two days later — Thursday, 7:00 p.m.', h2: 'The fire hall.', bgImg: 'img/scenes/img-02-firehall-night.webp',
       paras: ['The township called a public meeting — a photocopied flyer at the gas station, a line in the church bulletin. Word traveled anyway.',
         'Folding chairs. Coffee that’s been on since five. More people than the trustees expected — someone is dragging in chairs from the truck bay.'] },
-    { eyebrow: 'The fire hall — the announcement', paras: ['Dale Berg, board president, reads a statement: an “economic development opportunity of generational significance.” A company called Ashvale Digital Infrastructure. A data center campus. The Kessler farm.',
+    { eyebrow: 'The fire hall — the announcement', paras: ['Dale Berg, board president, reads a statement: an “economic development opportunity of generational significance.” A company called Ashvale Digital Infrastructure. A data center campus — warehouse-sized buildings full of the computers that run the internet. They need land. They need power. They need water. They want the Kessler farm.',
       'Next to him: a consultant, Gil Mora, in a jacket that costs more than the fire hall’s coffee budget for a decade. He smiles like he’s done this in forty townships. He has.',
       'The vote on the zoning and the tax package: six weeks from tonight.'] }
   ]
@@ -99,7 +99,7 @@ SCENES.a1_room = {
     },
     {
       id: 'listen', label: 'Sit and listen. Really listen — to the room, not just the table.',
-      response: 'Behind you, a man mutters to his wife: “My cousin’s in Ledger County, Indiana. Ashvale put one of these there. Promised them 150 jobs, he says.” His wife shushes him. You file it away.',
+      response: 'Two rows up, a woman you know from church: her son does HVAC in Columbus because there’s nothing for him here — two hundred construction jobs would bring him home. She isn’t wrong, and she isn’t naive. Behind you, a man mutters to his wife: “My cousin’s in Ledger County, Indiana. Ashvale put one of these there. Promised them 150 jobs, he says.” His wife shushes him. You file both away.',
       grantsFacts: ['R1']
     },
     {
@@ -161,7 +161,8 @@ SCENES.a2_open = {
   cards: [
     { dark: true, eyebrow: 'Act 2 — The Dig · Two weeks in, four weeks to the vote', h2: 'The yard signs are up.',
       paras: ['JOBS FOR HALVERSON — printed and glossy, all along the county road. WHAT ABOUT OUR WATER — hand-painted on plywood. Somebody with money is organizing one side. Somebody with a kitchen table is organizing the other.',
-        'The important facts about this deal exist — in filings, in contracts, in rooms you weren’t in. Almost none of them are public yet. Somebody has to go get them.'] }
+        'Maybe this deal is good for Halverson. Maybe it isn’t. Right now nobody can tell — and that’s the problem.',
+        'The facts that would answer it exist — in filings, in contracts, in rooms you weren’t in. Almost none of them are public yet. Somebody has to go get them.'] }
   ]
 }
 
@@ -173,14 +174,14 @@ SCENES.a2_records = {
   moves: [
     {
       id: 'request_water', label: 'The water and power studies — every impact document the township holds.',
-      response: 'Ten days later, a fat envelope. The draw: 2.1 million gallons a day — about 9,000 homes’ worth, for a township of 1,600. And the substation: $48 million, recovered through base electric rates. Everyone pays it. Whether the jobs come or not.',
+      response: 'Ten days later, a fat envelope. The draw: 2.1 million gallons a day — about 9,000 homes’ worth, for a township of 1,600. Not the billion gallons the group chat claims; the truth cuts down the rumor and is still enormous. And the substation: $48 million, recovered through base electric rates. Everyone pays it. Whether the jobs come or not.',
       grantsFacts: ['W1', 'W2'],
       costs: [{ id: 'afternoon1', label: 'an afternoon learning what a records request is' }],
       flags: ['hasDocuments']
     },
     {
       id: 'request_finance', label: 'The draft development agreement and every tax document behind it.',
-      response: 'The envelope takes twelve days. The tax abatement — Ashvale pays no property taxes at all: 100 percent, fifteen years. The schools’ payment in lieu: $250,000 against $3.1 million full valuation. And on page 31 — nothing. No clawback clause. You read it twice to be sure the promises are decorative. They are.',
+      response: 'The envelope takes twelve days. The tax abatement — Ashvale pays no property taxes at all: 100 percent, fifteen years. The schools’ payment in lieu: $250,000 against $3.1 million full valuation. And on page 31 — nothing. No clawback: no rule that takes the tax break back if the promised jobs never come. You read it twice to be sure the promises are decorative. They are.',
       grantsFacts: ['M1', 'M2', 'M3'],
       costs: [{ id: 'afternoon1', label: 'an afternoon learning what a records request is' }],
       flags: ['hasDocuments']
@@ -206,7 +207,7 @@ SCENES.a2_people = {
   moves: [
     {
       id: 'carpool', label: 'The Hendricks kid’s mom — she works at the regional water district.', requiresRole: 'teacher',
-      response: 'She meets you in the school lot, engine running. “You didn’t get this from me. Their projected draw is 2.1 million gallons a day. I’ve seen the intake application.” She looks at her mirrors the whole time she talks.',
+      response: 'She meets you in the school lot, engine running. “You didn’t get this from me. Their projected draw is 2.1 million gallons a day. I’ve seen the intake application. And whoever’s saying a billion — they’re off by five hundred times. The real number’s bad enough.” She looks at her mirrors the whole time she talks.',
       grantsFacts: ['W1']
     },
     {
@@ -322,7 +323,7 @@ SCENES.a2_late = {
   moves: [
     {
       id: 'ledger_call', label: 'Call the Ledger County commissioners’ office in Indiana. Ask what actually happened.', requiresFacts: ['R1'],
-      response: 'A commissioner calls you back personally, which tells you something. “Promised 150. We got 31 — and I’ll say that on the record to anyone.” Then, unprompted: “Get your conditions before the vote. We forced a clawback in year two, but it cost us two years of leverage we’d already given away. It can be done. Do it now.”',
+      response: 'A commissioner calls you back personally, which tells you something. “I’ll give you the whole picture. The construction years were real — eight hundred jobs, two good years. My brother-in-law bought a house. Permanent? Thirty-one. They promised 150.” Then, unprompted: “Get your conditions before the vote. We forced a clawback in year two — made the tax break contingent on the jobs actually showing up — but by then we’d given away two years of leverage. It can be done. Do it now.”',
       grantsFacts: ['R2', 'R3'],
       costs: [{ id: 'afternoon2', label: 'an afternoon of Indiana phone tag' }]
     },
@@ -396,7 +397,8 @@ SCENES.a3_comment = {
 // Rendered only when I3 is public or (I3 known and player spoke) — ui.js skips it otherwise
 SCENES.a3_recusal = {
   id: 'a3_recusal', type: 'decision',
-  setup: [{ eyebrow: 'The fire hall — the motion to vote', paras: ['Roy Prentice moves to proceed to the vote. Lena Fitch seconds, slowly. Dale Berg reaches for the gavel — and the room, which now knows what it knows, holds its breath at the sight of his hand.'] }],
+  setup: [{ eyebrow: 'The fire hall — the motion to vote', paras: ['Roy Prentice moves to proceed to the vote. Lena Fitch seconds, slowly. Dale Berg reaches for the gavel — and the room, which now knows what it knows, holds its breath at the sight of his hand.',
+    'When a board member stands to profit from a vote, the remedy has a name: recusal. Stepping aside. Not voting. Someone has to ask for it.'] }],
   prompt: 'The Pinloch connection is in the open. Someone has to say the word.',
   moves: [
     {

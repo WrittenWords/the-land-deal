@@ -15,7 +15,7 @@ const FACTS = {
   W1: {
     id: 'W1', cluster: 'water', tier: 'dig',
     title: 'The draw',
-    body: '2.1 million gallons a day. About what 9,000 homes use. Halverson has 1,600.',
+    body: '2.1 million gallons a day. About what 9,000 homes use. Halverson has 1,600. (Not the billion gallons the rumor claims — the real number is big enough without the lie.)',
     missedLine: 'The water numbers were in the impact study the whole time. Nobody asked for it.',
     reachableBy: ['teacher', 'county', 'farmer', 'friend']
   },
@@ -36,14 +36,14 @@ const FACTS = {
   M2: {
     id: 'M2', cluster: 'money', tier: 'dig',
     title: 'No clawback',
-    body: 'There is no clawback clause. If the jobs never come, nothing happens. The promises are not enforceable.',
+    body: 'There is no clawback — no rule that takes the tax break back if the promised jobs never come. If the jobs don’t show up, nothing happens. The promises are not enforceable.',
     missedLine: 'The missing clawback clause was findable in the draft agreement. One request. Nobody read it.',
     reachableBy: ['teacher', 'county', 'farmer', 'friend']
   },
   M3: {
     id: 'M3', cluster: 'money', tier: 'dig',
     title: 'What the schools get',
-    body: 'The PILOT payment to the school district: $250,000 a year. Full valuation would be about $3.1 million.',
+    body: 'Instead of property taxes, the schools get a fixed “payment in lieu”: $250,000 a year. Full property taxes on the site would be about $3.1 million.',
     missedLine: 'The school district ran the PILOT numbers weeks ago. The treasurer would have told anyone who called.',
     reachableBy: ['teacher', 'county', 'farmer', 'friend']
   },
@@ -57,7 +57,7 @@ const FACTS = {
   I1: {
     id: 'I1', cluster: 'insiders', tier: 'dig',
     title: 'Pinloch',
-    body: 'Pinloch Land Holdings LLC holds an option on 200 acres adjacent to the site. Filed quietly. Worth nothing unless the data center comes.',
+    body: 'Pinloch Land Holdings LLC holds an option — a paid right to buy later — on 200 acres next to the site. Filed quietly. Worth nothing unless the data center comes.',
     missedLine: 'The Pinloch option was sitting in the county plat records, fourteen lines down.',
     reachableBy: ['teacher', 'county', 'farmer', 'friend']
   },
@@ -85,7 +85,7 @@ const FACTS = {
   P2: {
     id: 'P2', cluster: 'process', tier: 'dig',
     title: 'Already drafted',
-    body: 'The zoning amendment is already written. It was drafted before the first public meeting was announced.',
+    body: 'The zoning amendment — the rule change that makes the land legal to build on — is already written. It was drafted before the first public meeting was announced.',
     missedLine: 'The draft amendment sat in a county file. The public process was catching up to a decision already shaped.',
     reachableBy: ['county', 'friend']
   },
@@ -106,7 +106,7 @@ const FACTS = {
   R2: {
     id: 'R2', cluster: 'record', tier: 'deep',
     title: 'Thirty-one',
-    body: 'Ledger County got 31 jobs. The commissioners will say so on the phone, on the record, to anyone who calls.',
+    body: 'Ledger County got 31 permanent jobs. The 800 construction jobs before them were real — and temporary. The commissioners will say all of it on the record, to anyone who calls.',
     missedLine: 'A commissioner in Indiana was one phone call away, and happy to talk. Nobody called.',
     reachableBy: ['teacher', 'county', 'farmer', 'friend']
   },
