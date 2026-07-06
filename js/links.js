@@ -3,9 +3,9 @@
 // the game must render and function with placeholders in place.
 const LINKS = {
   brandName: 'Signal Statewide',
-  coverage: 'https://signalohio.org/',                    // TODO-LINK: data-center coverage landing
-  tipLine: 'https://signalohio.org/tips',                 // TODO-LINK: confirm tip URL
-  newsletter: 'https://signalohio.org/newsletters',       // TODO-LINK: confirm signup URL
+  coverage: 'https://signalohio.org/ohio-data-centers-what-to-know-news-resources/',
+  tipLine: 'https://signalohio.org/signal-statewide-submit-a-news-tip/',
+  newsletter: 'https://signalohio.org/subscribe-signal-statewide-ohio-newsletter/',
   publicRecordsLaw: 'https://www.ohioattorneygeneral.gov/Legal/Sunshine-Laws', // Ohio Sunshine Laws (real, stable)
   sosBusinessSearch: 'https://businesssearch.ohiosos.gov/',                    // Ohio SOS business search (real, stable)
   gameUrl: 'https://writtenwords.github.io/the-land-deal/'
