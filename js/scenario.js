@@ -515,7 +515,7 @@ const TOOLKIT_COPY = {
     },
     {
       h3: 'The reporter',
-      paras: ['Early beats airtight. Documents beat rumors. Reporters can verify what you can’t — but verification takes time, so the moment you have something real is the moment to call.'],
+      paras: ['Early beats airtight. Documents beat rumors. Reporters can verify what you can’t — but verification takes time, so the moment you have something real is the moment to reach out.'],
       linkKey: 'tipLine', linkLabel: 'Send a tip'
     },
     {
