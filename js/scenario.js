@@ -181,7 +181,7 @@ SCENES.a2_records = {
     },
     {
       id: 'request_finance', label: 'The draft development agreement and every tax document behind it.',
-      response: 'The envelope takes twelve days. The tax abatement — Ashvale pays no property taxes at all: 100 percent, fifteen years. The schools’ payment in lieu: $250,000 against $3.1 million full valuation. And on page 31 — nothing. No clawback: no rule that takes the tax break back if the promised jobs never come. You read it twice to be sure the promises are decorative. They are.',
+      response: 'The envelope takes twelve days. The tax abatement — Ashvale pays no property taxes at all: 100 percent, fifteen years. What the schools get instead: $250,000 a year. Full property taxes would have been $3.1 million. And on page 31 — nothing. No clawback: no rule that takes the tax break back if the promised jobs never come. You read it twice to be sure the promises are decorative. They are.',
       grantsFacts: ['M1', 'M2', 'M3'],
       costs: [{ id: 'afternoon1', label: 'an afternoon learning what a records request is' }],
       flags: ['hasDocuments']
