@@ -214,6 +214,12 @@
   overflow-y: auto;
 }
 
+/* ── Text-top variant: content pinned to top, scrim flipped, so the lower part of the image (e.g. a building) stays visible ── */
+.card-image.text-top .card-inner { justify-content: flex-start; }
+.card-image.text-top::before {
+  background: linear-gradient(to bottom, rgba(10,13,18,0.94) 45%, rgba(10,13,18,0.2) 100%);
+}
+
 /* ── Phase B: scene illustrations — stronger scrim + light text (overrides legacy card-image) ── */
 .card-image { color: #f2efe8; background-position: center 62%; }
 .card-image::before {

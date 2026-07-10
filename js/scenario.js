@@ -15,7 +15,7 @@ const ROLES = {
   },
   farmer: {
     id: 'farmer', name: 'Ellen Prater', age: 58, title: 'The Neighboring Farmer',
-    has: '180 acres east of the Kessler place — and a letter from Ashvale’s land agent in your kitchen drawer.',
+    has: '180 acres east of the Kessler place — and a letter from someone buying up land out here in your kitchen drawer.',
     carries: 'The option would pay off the operating loan. You are inside the thing you have questions about.',
     place: 'Third generation on the land. The walnut trees are older than the township hall.'
   },
@@ -76,7 +76,7 @@ SCENES.a1_first_move = {
 SCENES.a1_meeting = {
   id: 'a1_meeting', type: 'cards', tap: 'Walk in',
   cards: [
-    { dark: true, eyebrow: 'Two days later — Thursday, 7:00 p.m.', h2: 'The fire hall.', bgImg: 'img/scenes/img-02-firehall-night.webp',
+    { dark: true, textTop: true, eyebrow: 'Two days later — Thursday, 7:00 p.m.', h2: 'The fire hall.', bgImg: 'img/scenes/img-02-firehall-night.webp',
       paras: ['The township called a public meeting — a photocopied flyer at the gas station, a line in the church bulletin. Word traveled anyway.',
         'Folding chairs. Coffee that’s been on since five. More people than the trustees expected — someone is dragging in chairs from the truck bay.'] },
     { eyebrow: 'The fire hall — the announcement', paras: ['Dale Berg, board president, reads a statement: an “economic development opportunity of generational significance.” A company called Ashvale Digital Infrastructure. A data center campus — warehouse-sized buildings full of the computers that run the internet. They need land. They need power. They need water. They want the Kessler farm.',
@@ -525,7 +525,7 @@ const TOOLKIT_COPY = {
     }
   ],
   newsletter: {
-    paras: ['The paper that shows up at the meeting is part of the infrastructure.'],
+    paras: ['The newsroom that shows up at the meeting is part of the infrastructure.'],
     linkKey: 'newsletter', linkLabel: 'Get the newsletter'
   }
 }

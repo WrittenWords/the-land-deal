@@ -38,7 +38,7 @@ const UI = (function () {
     let segs = '', slides = ''
     specs.forEach((spec, i) => {
       segs += '<div class="seg' + (i === 0 ? ' active' : '') + '"></div>'
-      const cls = 'card-slide' + (spec.bgImg ? ' card-image' : '') + (spec.dark ? ' card-dark' : '') + (i === 0 ? ' active' : '')
+      const cls = 'card-slide' + (spec.bgImg ? ' card-image' : '') + (spec.dark ? ' card-dark' : '') + (spec.textTop ? ' text-top' : '') + (i === 0 ? ' active' : '')
       // strip anything that could break out of the url() — paths are ours, but belt and suspenders
       const bg = spec.bgImg ? ' style="background-image:url(\'' + String(spec.bgImg).replace(/['"()\\ ]/g, '') + '\')"' : ''
       const isLast = i === specs.length - 1
@@ -146,7 +146,7 @@ const UI = (function () {
     const cards = _resolveVariant(scene)
     const echoes = Engine.echoesFor(scene.id)
     const specs = cards.map((c, i) => ({
-      dark: c.dark, bgImg: c.bgImg,
+      dark: c.dark, bgImg: c.bgImg, textTop: c.textTop,
       html: _cardHtml(c, i === cards.length - 1 ? echoes : [])
     }))
     _run(container, specs, scene.tap || 'Continue', () => Engine.next(scene.id))
@@ -161,7 +161,7 @@ const UI = (function () {
     if (moves.length < 2) { Engine.next(scene.id); return }
     const echoes = Engine.echoesFor(scene.id)
     const setup = scene.setup || []
-    const setupSpecs = setup.map((c, i) => ({ dark: c.dark, bgImg: c.bgImg, html: _cardHtml(c, i === setup.length - 1 ? echoes : []) }))
+    const setupSpecs = setup.map((c, i) => ({ dark: c.dark, bgImg: c.bgImg, textTop: c.textTop, html: _cardHtml(c, i === setup.length - 1 ? echoes : []) }))
     let choiceHtml = '<p class="card-eyebrow">' + _esc(scene.prompt) + '</p><div class="choice-list">'
     moves.forEach(m => {
       choiceHtml += '<button class="choice-card" data-move="' + m.id + '">' + _esc(m.label) + '</button>'
