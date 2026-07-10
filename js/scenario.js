@@ -334,7 +334,7 @@ SCENES.a2_late = {
     },
     {
       id: 'reporter_callback', label: 'Maya calls back. She needs one more corroboration to run it.', requiresFlag: 'gaveReporter',
-      response: 'You spend two hours reconstructing exactly where each piece came from, what’s documented and what’s secondhand. “Okay,” she finally says. “Okay.” You have never heard a better two-word sentence.',
+      response: 'Her second call this week. Twenty-five minutes: where each piece came from, what’s documented, what’s secondhand, who said it and when. “Okay,” she finally says. “Okay.” You have never heard a better two-word sentence. “It runs as soon as it clears edit. We don’t time stories to votes — it goes when it’s ready.”',
       flags: ['corroborated']
     },
     {
@@ -352,9 +352,9 @@ SCENES.a3_open = {
   id: 'a3_open', type: 'cards', tap: 'Take a seat',
   variants: {
     reporter: [
-      { dark: true, eyebrow: 'Act 3 — The morning of the vote', h2: 'The story runs.', bgImg: 'img/scenes/img-08-porch-morning.webp',
-        paras: ['Statewide nonprofit newsroom, top of the page: the documents, the numbers, the names — verified. By noon it’s in the group chats. By four, a TV truck from the city is parked outside the fire hall.',
-          'Tonight there are 140 people for 60 chairs.'] }
+      { dark: true, eyebrow: 'Act 3 — Three days before the vote', h2: 'The story runs.', bgImg: 'img/scenes/img-08-porch-morning.webp',
+        paras: ['Statewide nonprofit newsroom: the documents, the numbers, the names — verified. By noon it’s in the group chats. By four, a TV truck from the city is parked outside the fire hall.',
+          'Three nights later, on vote night, there are 140 people for 60 chairs.'] }
     ],
     loud: [
       { dark: true, eyebrow: 'Act 3 — Vote night · The fire hall', h2: 'The fire hall, full.', bgImg: 'img/scenes/img-06-meeting-full.webp',
